@@ -23,7 +23,7 @@ def commitChanges(){
     sh "git remote set-url origin https://${USER}:${PSW}@github.com/BhairaviSanskriti/jenkins-my-portfolio.git"
     
     sh '''#!/bin/bash
-         sed -i 's/Version:.*/Version: '"${BUILDNUMBER}"'/g' index.html
+         sed -i 's/Version:.*/Version: '"${BUIL_DNUMBER}"'/g' index.html
     '''
     
     sh "git add ."
