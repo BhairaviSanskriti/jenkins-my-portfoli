@@ -45,7 +45,7 @@ pipeline{
 
     stage('Update application version'){
       steps{
-        stage{
+        script{
           g_script.commitChanges()
         }
       }
