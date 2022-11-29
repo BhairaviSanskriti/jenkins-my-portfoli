@@ -23,7 +23,7 @@ def commitChanges(){
     sh "git remote set-url origin https://${USER}:${PSW}@github.com/BhairaviSanskriti/jenkins-my-portfolio.git"
     sh "git add ."
     sh 'git commit -m "updated version"'
-    sh "git push origin HEAD:${BRANCH_NAME}"
+    sh "git push origin main"
   }
 }
 
