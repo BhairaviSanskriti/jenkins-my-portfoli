@@ -1,24 +1,32 @@
+def g_script
+
 pipeline{
-  def g_script
   agent any
   
   stages{
     
     stage('Init Stage'){
       steps{
-        g_script = load 'script.groovy'
+        script{
+          g_script = load 'script.groovy'
+      
+        }
       }
     }  
     
     stage('Image Build Stage'){
       steps{
-        g_script.buildImage()
+        script{
+          g_script.buildImage()
+        }
       }
     }  
     
     stage('Test Stage'){
       steps{
-        g_script.testApp()
+        script{
+          g_script.testApp()
+        }
       }
     }
 
@@ -29,12 +37,16 @@ pipeline{
         }
       }
       steps{
-        g_script.deployApp()
+        script{
+          g_script.deployApp()
+        }
       }
     }  
 
     stage('Update application version'){
-      g_script.commitChanges()
+      script{
+        g_script.commitChanges()
+      }
     }
   }
 }
