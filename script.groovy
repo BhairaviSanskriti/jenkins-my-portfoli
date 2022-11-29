@@ -21,6 +21,11 @@ def commitChanges(){
     sh 'git config --global user.name "jenkins"'
     sh 'git config --global user.email "my.jenkins.server@gmail.com"'
     sh "git remote set-url origin https://${USER}:${PSW}@github.com/BhairaviSanskriti/jenkins-my-portfolio.git"
+    
+    sh '''#!/bin/bash
+         sed -i 's/Version:.*/Version: '"${BUILDNUMBER}"'/g' index
+    '''
+    
     sh "git add ."
     sh 'git commit -m "updated version"'
     sh "git push origin main"
