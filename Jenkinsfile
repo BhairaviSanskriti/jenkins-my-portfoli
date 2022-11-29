@@ -31,11 +31,6 @@ pipeline{
     }
 
     stage('Deploy Stage'){
-      when{
-        expression{
-          BRANCH_NAME == 'main'
-        }
-      }
       steps{
         script{
           g_script.deployApp()
