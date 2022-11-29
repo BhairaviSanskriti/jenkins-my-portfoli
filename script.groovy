@@ -28,7 +28,7 @@ def commitChanges(){
     
     sh "git add ."
     sh 'git commit -m "updated version"'
-    sh "git push origin main"
+    sh "git push origin HEAD:main"
   }
 }
 
