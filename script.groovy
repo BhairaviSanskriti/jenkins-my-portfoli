@@ -1,6 +1,6 @@
 def buildImage(){
   echo "Image is being built with version ${BUILD_NUMBER} ..."
-  withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'PSW', usernameVariable: 'USER')]) {
+  withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'PSW', usernameVariable: 'USER')]) {
     sh "docker build -t bhairavisanskriti/sanskriti-website:${BUILD_NUMBER}"
     sh "echo ${PSW} | docker login -u ${USER} --password-stdin"
     sh "docker push bhairavisanskriti/sanskriti-website:${BUILD_NUMBER}"
